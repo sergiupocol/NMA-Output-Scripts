@@ -8,6 +8,8 @@ alphas <- results_data[which(startsWith(x = as.character(results_data$var), pref
 
 hist(stack(alphas)$values)
 
+# FOR A ALPHA HIST PLOT ACROSS ALL NETWORKS
+# Should follow a normal of students t distn
 for(network.name in colnames(alphas)) {
   if (network.name != "var") {
     png(file = paste0(network.name, "_plot.png"))
@@ -15,4 +17,7 @@ for(network.name in colnames(alphas)) {
     dev.off()
   }
 }
+
+# MAIN PLOT OF INTEREST
+hist(alphas[,"Full-network-model-fixed"])
 
